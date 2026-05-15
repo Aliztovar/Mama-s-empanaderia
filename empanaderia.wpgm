@@ -5,11 +5,15 @@ import opciones.*
 
 program EmpanaderiaGame {
 	game.title("Empanaderia")
-	game.height(15)
-	game.width(15)
-	game.addVisual(cruceta)
+	game.height(16)
+	game.width(8)
 	estacionA.iniciar()
-	config.configurarTeclas()
-	game.boardGround("fondo2.png")
 	game.start()
 }
+
+
+//to-do:
+//tests
+//aumentar coccion con metodos de tiempo al meter empanada en horno
+//configurar y hacer visuales
+//mejorar clases en opciones.wlk

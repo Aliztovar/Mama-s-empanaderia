@@ -1,0 +1,84 @@
+import wollok.game.*
+import cruceta.*
+import niveles.*
+import opciones.*
+import armado.*
+import horno.*
+import empanadas.*
+
+
+describe "Bandeja " {
+    test "armar empanada"{
+        masaA.interactuar()
+        rellenoA.interactuar()
+	    assert.equals(4, empanada1.masa())
+    }
+
+    test "mover empanada de bandeja a horno" {
+        masaA.interactuar()
+        rellenoA.interactuar()
+        espacioHorno1.interactuar()
+        empanada1.interactuar()
+        assert.equals(4, espacioHorno1.masa())
+    }
+
+    test "mover empanada de nuevo a la bandeja" {
+        masaA.interactuar()
+        rellenoA.interactuar()
+        espacioHorno1.interactuar()
+        empanada1.interactuar()
+        espacioHorno1.interactuar()
+	    assert.equals(4, empanada1.masa())
+    }
+
+    test "empanada recien armada espera si no hay lugar en la bandeja" {
+        masaA.interactuar()
+        rellenoA.interactuar()
+
+        masaA.interactuar()
+        rellenoA.interactuar()
+
+        masaA.interactuar()
+        rellenoA.interactuar()
+
+        masaA.interactuar()
+        rellenoA.interactuar()
+
+        masaA.interactuar()
+        rellenoA.interactuar()
+
+        masaA.interactuar()
+        rellenoA.interactuar()
+
+        masaA.interactuar()
+        rellenoA.interactuar()
+	    assert.equals(4, empanadaPreparacion.masa())
+    }
+
+    test "empanada en espera puede ir a la bandeja una vez que se libera espacio" {
+        masaA.interactuar()
+        rellenoA.interactuar()
+
+        masaA.interactuar()
+        rellenoA.interactuar()
+
+        masaA.interactuar()
+        rellenoA.interactuar()
+
+        masaA.interactuar()
+        rellenoA.interactuar()
+
+        masaA.interactuar()
+        rellenoA.interactuar()
+
+        masaA.interactuar()
+        rellenoA.interactuar()
+
+        masaB.interactuar()
+        rellenoA.interactuar()
+        espacioHorno1.interactuar()
+        empanada1.interactuar()
+        empanadaPreparacion.interactuar()
+	    assert.equals(5, empanada1.masa())
+    }
+}
